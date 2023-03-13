@@ -18,9 +18,9 @@ seaborn
 
 ```
 # Clone the Github Repo
-git clone https://github.com/shadabshaukat/python-oracledb-pandas-demo.git
+git clone https://github.com/oracle-quickstart/pandas-oracledb-statistical-analysis.git
 
-cd python-oracledb-pandas-demo
+cd pandas-oracledb-statistical-analysis/
 
 # Set the environment variables to connect to Oracle Database
 export ORACLE_USER=username
