@@ -2,7 +2,7 @@
 
 This project contains Python code that utilizes the Matplotlib and Seaborn libraries for data visualization.
 
-## Usage
+# Usage
 
 This project requires the following libraries:
 
@@ -14,20 +14,23 @@ matplotlib
 seaborn
 ```
 
-### Run without GUI
+## Run without GUI
 
 ```
-# Clone the Github Repo
+### Clone the Github Repo
 git clone https://github.com/oracle-quickstart/pandas-oracledb-statistical-analysis.git
 
 cd pandas-oracledb-statistical-analysis/
+```
 
-# Set the environment variables to connect to Oracle Database
+### Set the environment variables to connect to Oracle Database
+```
 export ORACLE_USER=username
 export ORACLE_PASSWORD=password
 export ORACLE_DSN='(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=*******_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'
+```
 
-# Deploy the SQL
+### Deploy the SQL
 ```
 sql $ORACLE_USER/$ORACLE_PASSWORD@$ORACLE_DSN
 
@@ -35,6 +38,8 @@ sql $ORACLE_USER/$ORACLE_PASSWORD@$ORACLE_DSN
 ```
 
 # Build from Source
+
+```
 podman build -t oraclepandasdemo .
 
 podman run -it \
@@ -42,21 +47,26 @@ podman run -it \
 -e ORACLE_PASSWORD=YourPassword234#_ \
 -e ORACLE_DSN="(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=****_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))" oraclepandasdemo
 
-
 ```
 
 
-## Run with GUI
-```
+## Run using GUI
+
+
 # Install Dependencies
+```
 pip3 install -r requirements.txt
+```
 
 # Set the environment variables to connect to Oracle Database
+```
 export ORACLE_USER=username
 export ORACLE_PASSWORD=password
 export ORACLE_DSN='(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=*******_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'
+```
 
-# Run
+# Execute Python Script
+```
 python3 pandas-charts.py
 ```
 
