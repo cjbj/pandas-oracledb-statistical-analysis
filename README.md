@@ -27,6 +27,13 @@ export ORACLE_USER=username
 export ORACLE_PASSWORD=password
 export ORACLE_DSN='(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=*******_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'
 
+# Deploy the SQL
+```
+sql $ORACLE_USER/$ORACLE_PASSWORD@$ORACLE_DSN
+
+@schema.sql
+```
+
 # Build from Source
 podman build -t oraclepandasdemo .
 
