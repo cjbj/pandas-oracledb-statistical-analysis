@@ -16,8 +16,9 @@ seaborn
 
 ## Run without GUI
 
-```
 ### Clone the Github Repo
+
+```
 git clone https://github.com/oracle-quickstart/pandas-oracledb-statistical-analysis.git
 
 cd pandas-oracledb-statistical-analysis/
@@ -37,7 +38,7 @@ sql $ORACLE_USER/$ORACLE_PASSWORD@$ORACLE_DSN
 @schema.sql
 ```
 
-# Build from Source
+### Build from Source
 
 ```
 podman build -t oraclepandasdemo .
