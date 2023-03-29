@@ -31,12 +31,29 @@ export ORACLE_PASSWORD=password
 export ORACLE_DSN='(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=*******_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'
 ```
 
-### Deploy the SQL
+### Seed the Schema
 ```
 sql $ORACLE_USER/$ORACLE_PASSWORD@$ORACLE_DSN
 
 @schema.sql
 ```
+
+### Generate Sample Employee Data
+```
+BEGIN
+    add_employees(5000); -- generate 5k random employees
+END;
+/
+```
+
+### Generate Sample Employee Salary Data
+```
+BEGIN
+  generate_employees_salary(5000); -- generate 5k random employee salary/bonus records
+END;
+/
+```
+
 
 ### Build from Source
 
