@@ -82,4 +82,4 @@ python3 pandas-charts.py
 <img width="774" alt="Screen Shot 2023-03-13 at 5 26 51 pm" src="https://user-images.githubusercontent.com/39692236/224623880-7f34ef6f-3e6c-4628-8a1b-a3018ebcdcc0.png">
 
 
-#### Please feel free to contact me if you have any questions or comments about this project.
+#### Important Note : Visualization of the Pandas dataframes currently work only from Python3 and not Docker
