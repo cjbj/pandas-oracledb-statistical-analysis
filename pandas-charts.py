@@ -18,7 +18,13 @@ user = os.environ['ORACLE_USER']
 password = os.environ['ORACLE_PASSWORD']
 dsn = os.environ['ORACLE_DSN']
 
-engine_cloud = create_engine(f'oracle://{user}:{password}@{dsn}')
+engine_cloud = create_engine(f'oracle://:@',
+                             connect_args={
+                                 "user": user,
+                                 "password": password,
+                                 "dsn": dsn
+                             }
+                            )
 
 try:
    # Read employees table
