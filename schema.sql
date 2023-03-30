@@ -76,7 +76,7 @@ END;
 
 -- Generate Sample Employee Data
 BEGIN
-    add_employees(50);
+    add_employees(10000);
 END;
 /
 
@@ -95,7 +95,7 @@ CREATE OR REPLACE PROCEDURE generate_employees_salary(n IN NUMBER) AS
 BEGIN
   FOR i IN 1..n LOOP
     INSERT INTO employees_salary (employee_id, salary, start_date, end_date, bonus)
-    VALUES (FLOOR(DBMS_RANDOM.VALUE(1, 10)), -- generate random employee_id between 1 and 10
+    VALUES (FLOOR(DBMS_RANDOM.VALUE(1, 10000)), -- generate random employee_id between 1 and 10000
             ROUND(DBMS_RANDOM.VALUE(50000, 100000), 2), -- generate random salary between 50000 and 100000 with 2 decimal places
             TRUNC(SYSDATE - DBMS_RANDOM.VALUE(1, 365)), -- generate random start_date between 1 and 365 days ago
             TRUNC(SYSDATE + DBMS_RANDOM.VALUE(1, 365)), -- generate random end_date between today and 365 days from now
@@ -107,7 +107,7 @@ END;
 
 -- Generate Sample Employee Salary Data
 BEGIN
-  generate_employees_salary(50); -- generate 50 random records
+  generate_employees_salary(10000); 
 END;
 /
 
