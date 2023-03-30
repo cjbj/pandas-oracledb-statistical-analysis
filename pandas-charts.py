@@ -57,6 +57,8 @@ try:
    plt.title('Average Salaries per Department')
    plt.xlabel('Department')
    plt.ylabel('Average Salary')
+   output_file = "avg_salary.png"
+   plt.savefig(output_file, bbox_inches='tight', dpi=300)
    plt.show()
 
    # Average Bonus by Department
@@ -72,6 +74,8 @@ try:
    plt.title('Average Bonus per Department')
    plt.xlabel('Department')
    plt.ylabel('Average Bonus')
+   output_file = "avg_bonus.png"
+   plt.savefig(output_file, bbox_inches='tight', dpi=300)
    plt.show()
 
    # Get the mean, median, standard deviation, and other statistics for the salary column in df_employees_salary
@@ -87,6 +91,8 @@ try:
    plt.title('Distribution of Salary')
    plt.xlabel('Salary')
    plt.ylabel('Count')
+   output_file = "dist_salary.png"
+   plt.savefig(output_file, bbox_inches='tight', dpi=300)
    plt.show()
 
    # Calculate the correlation matrix between the salary and bonus columns in df_employees_salary
@@ -100,6 +106,8 @@ try:
    plt.figure(figsize=(8,6))
    sns.heatmap(data=corr_matrix, cmap='coolwarm', annot=True)
    plt.title('Correlation Matrix Heatmap')
+   output_file = "correlation_matrix.png"
+   plt.savefig(output_file, bbox_inches='tight', dpi=300)
    plt.show()
 
 except SQLAlchemyError as e:
