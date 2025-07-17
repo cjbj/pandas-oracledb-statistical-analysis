@@ -100,3 +100,18 @@ python3 pandas-charts.py
 
 
 #### Important Note : Visualization of the Pandas dataframes currently work only from Python3 and not Docker
+
+## Contributing
+
+This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](./CONTRIBUTING.md)
+
+## Security
+
+Please consult the [security guide](./SECURITY.md) for our responsible security vulnerability disclosure process
+
+## License
+
+Copyright (c) 2023 Oracle and/or its affiliates.
+
+Released under the Apache License version 2.0 as shown at
+<http://www.apache.org/licenses/>.
