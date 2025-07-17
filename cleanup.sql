@@ -1,4 +1,4 @@
-/*  
+/*
 ------------------------------------------------------------------------------
 Copyright (c) 2023, 2025, Oracle and/or its affiliates.
 
@@ -56,4 +56,4 @@ end;
 
 purge user_recyclebin
 /
-  
+

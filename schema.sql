@@ -1,4 +1,4 @@
-/*  
+/*
 ------------------------------------------------------------------------------
 Copyright (c) 2023, 2025, Oracle and/or its affiliates.
 
@@ -156,7 +156,7 @@ CREATE TABLE employees_salary (
     end_date DATE NOT NULL,
     bonus FLOAT NOT NULL
 )
-/  
+/
 
 -- Procedure to Generate Sample Data
 CREATE OR REPLACE PROCEDURE generate_employees_salary(n IN NUMBER) AS
@@ -174,9 +174,9 @@ END;
 
 -- Generate Sample Employee Salary Data
 BEGIN
-  generate_employees_salary(10000); 
+  generate_employees_salary(10000);
 END;
 /
 
 COMMIT
-/  
+/
