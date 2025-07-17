@@ -1,5 +1,4 @@
 pandas
-sqlalchemy<2.0
-oracledb
+oracledb>3.3
 matplotlib
 seaborn

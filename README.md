@@ -1,20 +1,19 @@
-# Statistical Analysis with Oracle Database, Pandas, Matplotlib and Seaborn
+# Statistical Analysis with Oracle Database, Pandas, Matplotlib, and Seaborn
 
 This project contains Python code that utilizes the Matplotlib and Seaborn libraries for data visualization.
 
-# Usage
+
+## Setup
 
 This project requires the following libraries:
 
 ```
 pandas
-sqlalchemy<2.0
-oracledb
+pyarrow
+oracledb>=3.3
 matplotlib
 seaborn
 ```
-
-## Run without GUI
 
 ### Clone the Github Repo
 
@@ -24,71 +23,44 @@ git clone https://github.com/oracle-quickstart/pandas-oracledb-statistical-analy
 cd pandas-oracledb-statistical-analysis/
 ```
 
-### Set the environment variables to connect to Oracle Database
+## Running Locally
+
+### Install Dependencies
+```
+python -m pip install -r requirements.txt
+```
+
+#### Set the environment variables to connect to Oracle Database
 ```
 export ORACLE_USER=username
 export ORACLE_PASSWORD=password
-export ORACLE_DSN='(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=*******_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'
+export ORACLE_DSN='(description=(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=*******_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'
 ```
 
-### Seed the Schema
+#### Seed the Schema
 ```
-sql $ORACLE_USER/$ORACLE_PASSWORD@$ORACLE_DSN
-
-@schema.sql
+python create_env.py
 ```
 
-### Generate Sample Employee Data
-```
-BEGIN
-    add_employees(5000); -- generate 5k random employees
-END;
-/
-```
+Note this drops and recreates several tables and procedures.
 
-### Generate Sample Employee Salary Data
-```
-BEGIN
-  generate_employees_salary(5000); -- generate 5k random employee salary/bonus records
-END;
-/
-```
+### Run using CLI
 
-
-### Build from Source
+Set the environment variables as shown above and run:
 
 ```
-podman build -t oraclepandasdemo .
-
-podman run -it \
--e ORACLE_USER=admin \
--e ORACLE_PASSWORD=YourPassword234#_ \
--e ORACLE_DSN="(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=****_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))" oraclepandasdemo
-
+python pandas-data.py
 ```
 
+### Run using GUI
 
-## Run using GUI
+Set the environment variables as shown above and run:
 
-
-# Install Dependencies
 ```
-pip3 install -r requirements.txt
-```
-
-# Set the environment variables to connect to Oracle Database
-```
-export ORACLE_USER=username
-export ORACLE_PASSWORD=password
-export ORACLE_DSN='(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-melbourne-1.oraclecloud.com))(connect_data=(service_name=*******_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))'
+python pandas-charts.py
 ```
 
-# Execute Python Script
-```
-python3 pandas-charts.py
-```
-
-## Visualization 
+#### Visualization
 
 <img width="782" alt="Screen Shot 2023-03-13 at 5 26 25 pm" src="https://user-images.githubusercontent.com/39692236/224623817-7c13012a-e5c8-460f-8b33-dbb464e32722.png">
 
@@ -99,7 +71,23 @@ python3 pandas-charts.py
 <img width="774" alt="Screen Shot 2023-03-13 at 5 26 51 pm" src="https://user-images.githubusercontent.com/39692236/224623880-7f34ef6f-3e6c-4628-8a1b-a3018ebcdcc0.png">
 
 
-#### Important Note : Visualization of the Pandas dataframes currently work only from Python3 and not Docker
+## Running in a Container
+
+Set the environment variables as shown above and run:
+
+```
+podman build \
+--build-arg ORACLE_USER=$ORACLE_USER \
+--build-arg ORACLE_PASSWORD=$ORACLE_PASSWORD \
+--build-arg ORACLE_DSN=$ORACLE_DSN -t oraclepandasdemo .
+
+podman run -it \
+-e ORACLE_USER=$ORACLE_USER \
+-e ORACLE_PASSWORD=$ORACLE_PASSWORD \
+-e ORACLE_DSN=$ORACLE_DSN oraclepandasdemo
+```
+
+**Important Note: Visualization from the Pandas dataframes works only from a local install and not in the container**
 
 ## Contributing
 
@@ -111,7 +99,7 @@ Please consult the [security guide](./SECURITY.md) for our responsible security 
 
 ## License
 
-Copyright (c) 2023 Oracle and/or its affiliates.
+Copyright (c) 2023, 2025 Oracle and/or its affiliates.
 
 Released under the Apache License version 2.0 as shown at
 <http://www.apache.org/licenses/>.
