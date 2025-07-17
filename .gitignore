@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Generated images
+avg_bonus.png
+avg_salary.png
+correlation_matrix.png
+create_env.py
+dist_salary.png
