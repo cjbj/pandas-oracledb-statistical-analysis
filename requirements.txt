@@ -1,4 +1,5 @@
 pandas
-oracledb>3.3
+pyarrow
+oracledb>=3.2
 matplotlib
 seaborn
