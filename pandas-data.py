@@ -47,18 +47,18 @@ print("Statistical Analysis of Bonus and Salary for Employees")
 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 print("")
 
-# Avergae Salaries by Department
+# Average Salaries by Department
 merged_df = pd.merge(df_employees_salary,df_employees, on='ID')
 avg_salaries = merged_df.groupby('DEPARTMENT')['SALARY'].mean()
 print("+++++++++++++++++++++++++++++++")
-print("Avergae Salaries Per Department")
+print("Average Salaries Per Department")
 print("+++++++++++++++++++++++++++++++")
 print(avg_salaries)
 
 # Average Bonus by Department
 avg_bonuses = merged_df.groupby('DEPARTMENT')['BONUS'].mean()
 print("++++++++++++++++++++++++++++")
-print("Avergae Bonus Per Department")
+print("Average Bonus Per Department")
 print("++++++++++++++++++++++++++++")
 print(avg_bonuses)
 
